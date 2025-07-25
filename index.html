@@ -2,8 +2,875 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <meta content="true" name="HandheldFriendly" />
+    <meta content="width" name="MobileOptimized" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link href="./src/output.css" rel="stylesheet" />
     <title>FromBoard Delivery</title>
   </head>
-  <body></body>
+  <body class="bg-gray-200 overflow-x-hidden">
+    <div
+      class="fixed w-[100vw] h-[150vh] left-0 z-0 bg-black/25 backdrop-blur-sm overflow-hidden hidden"
+      id="burger-wall"
+    >
+      <!-- blackout -->
+    </div>
+    <header
+      class="lg:relative 3xl:px-48 2xl:px-64 lg:px-32 md:px-[60px] px-[3.5%] lg:py-[24px] bg-gray-50 fixed w-[100vw] top-0 z-20"
+    >
+      <div class="flex justify-between text-gray-900 lg:py-0 py-2">
+        <a
+          href="./index.html"
+          class="flex items-center sm:max-w-none 2xl:float-left"
+        >
+          <img
+            class="hover:opacity-50 cursor-pointer transition-opacity duration-500"
+            src="./public/Logo.svg"
+            alt="Logo"
+          />
+          <span
+            class="md:text-lg text-2xl ml-4 font-black hover:text-[#8B5CF6] cursor-pointer transition-colors duration-500"
+            >FromBoard Delivery</span
+          >
+        </a>
+
+        <div class="flex gap-[24px] 3xl:h-[76px]">
+          <div
+            class="hidden 2xl:flex flex-col relative after:absolute after:content-[''] after:h-full after:w-[1px] after:bg-purple-400 after:right-[-12px]"
+          >
+            <span class="text-right"
+              >Доставляем товары из заграницы в Россию</span
+            >
+            <span class="text-right">Стоимость от 550 рублей за заказ</span>
+            <span class="text-right">1 $ = 93 ₽ | 1 € = 99 ₽ | 1 ¥ = 13 ₽</span>
+          </div>
+
+          <div class="flex lg:flex-col justify-center items-center">
+            <span
+              class="text-xl lg:text-2xl 2xl:text-3xl 3xl:text-4xl font-black hidden md:inline-block"
+            >
+              <a
+                class="hover:text-[#8B5CF6] transition-colors duration-500"
+                href="tel:78001234567"
+                >+7 (800) 123 45-67</a
+              >
+            </span>
+            <div
+              class="hidden 3xl:text-2xl 2xl:text-xl lg:block font-light text-gray-900"
+            >
+              Звонки по России бесплатны
+            </div>
+            <div
+              class="flex flex-col gap-0.5 ml-4 lg:hidden"
+              id="burger-btn"
+              onclick="useBurger()"
+            >
+              <div
+                id="burgerOne"
+                class="w-[24px] h-1 rounded bg-[#8B5CF6] transition-opacity"
+              ></div>
+              <div
+                id="burgerTwo"
+                class="w-[24px] h-1 rounded bg-[#8B5CF6] absolute translate-y-[6px] transition-transform duration-500"
+              ></div>
+              <div
+                id="burgerThree"
+                class="w-[24px] h-1 rounded bg-[#8B5CF6] transition-transform duration-500"
+              ></div>
+              <div
+                id="burgerFour"
+                class="w-[24px] h-1 rounded bg-[#8B5CF6] transition-opacity"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="z-10 md:px-[63px] lg:px-0 lg:block lg:relative lg:mt-3 absolute bg-gray-50 right-0 left-0 rounded-b-2xl lg:rounded-none transform-[translateY(-200vh)] transition-transform duration-500 lg:transform-none"
+        id="burger"
+      >
+        <!-- burger -->
+
+        <div
+          class="w-full h-0.5 bg-[#8B5CF6] mt-1 mb-[10px] lg:mt-0 2xl:hidden"
+        ></div>
+        <nav
+          class="flex 2xl:mt-[24px] md:flex-row md:gap-0 gap-5 flex-col items-center px-[24px] lg:px-0 justify-between text-gray-900 font-bold"
+        >
+          <div
+            class="flex md:flex-row flex-col gap-5 items-center md:gap-[24px]"
+          >
+            <a
+              class="hover:text-gray-900 text-[#8B5CF6] cursor-pointer transition-colors duration-500 dashed-underline"
+              href="#calc"
+              >Калькулятор</a
+            >
+            <a
+              class="hover:text-[#8B5CF6] cursor-pointer transition-colors duration-500w"
+              href="#aboutUs"
+              >О нас</a
+            >
+            <a
+              class="hover:text-[#8B5CF6] cursor-pointer transition-colors duration-500w"
+              href="#garantee"
+              >Гарантии</a
+            >
+            <a
+              class="hover:text-[#8B5CF6] cursor-pointer transition-colors duration-500w"
+              href="#reviews"
+              >Отзывы</a
+            >
+          </div>
+
+          <button
+            class="bg-[#8B5CF6] hover:bg-[#A78BFA] cursor-pointer transition-colors duration-500 text-gray-50 py-[10px] px-7 rounded-sm"
+          >
+            Оставить заявку
+          </button>
+          <span class="text-xl font-black sm:hidden inline-block">
+            +7 (800) 123 45-67
+          </span>
+        </nav>
+        <div class="w-full h-0.5 bg-[#8B5CF6] mt-3 2xl:hidden"></div>
+        <div
+          class="2xl:hidden lg:h-12 mt-[10px] flex md:flex-row md:gap-0 md:justify-between gap-5 flex-col text-center items-center text-gray-900 text-sm mb-[24px] lg:mb-0"
+        >
+          <span class="max-w-[184px] align-middle"
+            >Доставляем товары из заграницы в Россию</span
+          >
+          <span class="align-middle">Стоимость от 550 рублей за заказ</span>
+          <span class="min-w-[223px] align-middle"
+            >1 $ = 93 ₽ | 1 € = 99 ₽ | 1 ¥ = 13 ₽</span
+          >
+        </div>
+      </div>
+    </header>
+
+    <main
+      class="flex flex-col gap-12 3xl:gap-[72px] mt-[130px] lg:mt-[48px] px-[3.5%] md:px-[59px] lg:px-32 2xl:px-[255px] 3xl:px-48 w-full"
+    >
+      <div>
+        <!-- first main container -->
+        <div class="3xl:flex 3xl:gap-2 3xl:w-full">
+          <div
+            class="3xl:w-[50%] 3xl:flex-col 2xl:flex-row 2xl:gap-4 flex flex-col md:items-center"
+          >
+            <!-- container text -->
+            <div class="3xl:w-full 2xl:w-[49%]">
+              <div
+                class="text-gray-900 3xl:text-4xl text-3xl font-black text-left align-middle md:max-w-none max-w-[610px]"
+              >
+                Без проблемная доставка купленных вещей из США, Европы и Азии
+                в Россию
+              </div>
+              <div
+                class="text-gray-900 text-xl text-left mt-3 align-middle md:max-w-none max-w-[570px]"
+              >
+                Сэкономьте на покупках и наслаждайтесь мировыми брендами —
+                наш сервис позволяет вам легко и удобно заказывать товары
+                со всего мира и получать их в России
+              </div>
+            </div>
+
+            <div
+              class="3xl:h-full 3xl:w-full 2xl:w-[50%] 2xl:h-[232px] 2xl:mt-0 w-full bg-cover bg-[url(../public/Hero1-2.svg)] h-[350px] rounded-2xl mt-4 bg-no-repeat bg-center max-w-[768px]"
+            >
+              <!-- <img
+                class="w-[640px] h-[350px] max-w-none"
+                height="350px"
+                src="./public/Hero1-2.svg"
+                alt=""
+              /> -->
+            </div>
+          </div>
+          <form
+            id="calc"
+            class="3xl:max-w-[50%] 3xl:w-[50%] 3xl:px-[130px] 2xl:px-[210px] lg:px-[99.5px] md:px-[35.5px] px-[3.5%] py-[24px] bg-gray-50 rounded-2xl mt-12 lg:mt-10 3xl:mt-0"
+          >
+            <!-- container calculator -->
+            <div class="text-center text-gray-900 text-3xl font-bold">
+              Калькулятор доставки
+            </div>
+            <div class="text-gray-900 text-center mt-4 max-w-89 mx-auto">
+              Посчитайте, сколько будет стоить перевозка покупки из зарубежа
+            </div>
+            <input
+              name="name"
+              type="text"
+              placeholder="Имя"
+              autocomplete="given-name"
+              required
+              class="w-full border-2 border-gray-900 text-gray-900 rounded-sm text mt-[28px] p-[10px] placeholder:text-gray-400 hover:border-[#8a5cf680] transform-border duration-500 focus:border-[#8B5CF6] outline-0"
+            />
+            <div class="grid sm:grid-cols-2 grid-cols-1 gap-[24px] mt-[24px]">
+              <!-- и сюда инпутов накидать в грид сетку -->
+              <input
+                name="email"
+                placeholder="Почта"
+                type="email"
+                autocomplete="on"
+                required
+                class="w-full border-2 border-gray-900 text-gray-900 rounded-sm text p-[10px] placeholder:text-gray-400 hover:border-[#8a5cf680] transform-border duration-500 focus:border-[#8B5CF6] outline-0"
+              />
+              <input
+                name="phone"
+                placeholder="Телефон"
+                type="tel"
+                autocomplete="on"
+                required
+                class="w-full border-2 border-gray-900 text-gray-900 rounded-sm text p-[10px] placeholder:text-gray-400 hover:border-[#8a5cf680] transform-border duration-500 focus:border-[#8B5CF6] outline-0"
+              />
+              <input
+                name="total-area"
+                placeholder="Общая площадь, м²"
+                type="number"
+                autocomplete="on"
+                required
+                class="w-full border-2 border-gray-900 text-gray-900 rounded-sm text p-[10px] placeholder:text-gray-400 hover:border-[#8a5cf680] transform-border duration-500 focus:border-[#8B5CF6] outline-0"
+              />
+              <input
+                name="weight"
+                placeholder="Вес, кг"
+                type="number"
+                autocomplete="on"
+                required
+                class="w-full border-2 border-gray-900 text-gray-900 rounded-sm text p-[10px] placeholder:text-gray-400 hover:border-[#8a5cf680] transform-border duration-500 focus:border-[#8B5CF6] outline-0"
+              />
+              <input
+                name="country-of-purchase"
+                placeholder="Страна покупки"
+                type="text"
+                autocomplete="on"
+                required
+                class="w-full border-2 border-gray-900 text-gray-900 rounded-sm text p-[10px] placeholder:text-gray-400 hover:border-[#8a5cf680] transform-border duration-500 focus:border-[#8B5CF6] outline-0"
+              />
+              <input
+                name="city-of-purchase"
+                placeholder="Город покупки"
+                type="text"
+                autocomplete="on"
+                required
+                class="w-full border-2 border-gray-900 text-gray-900 rounded-sm text p-[10px] placeholder:text-gray-400 hover:border-[#8a5cf680] transform-border duration-500 focus:border-[#8B5CF6] outline-0"
+              />
+              <input
+                name="delivery-area"
+                placeholder="Область доставки"
+                type="text"
+                autocomplete="on"
+                required
+                class="w-full border-2 border-gray-900 text-gray-900 rounded-sm text p-[10px] placeholder:text-gray-400 hover:border-[#8a5cf680] transform-border duration-500 focus:border-[#8B5CF6] outline-0"
+              />
+              <input
+                name="delivery-city"
+                placeholder="Город доставки"
+                type="text"
+                autocomplete="on"
+                required
+                class="w-full border-2 border-gray-900 text-gray-900 rounded-sm text p-[10px] placeholder:text-gray-400 hover:border-[#8a5cf680] transform-border duration-500 focus:border-[#8B5CF6] outline-0"
+              />
+            </div>
+            <input
+              name="take-calculation"
+              value="Заказать расчёт"
+              type="submit"
+              class="w-full bg-[#8B5CF6] rounded-sm text-gray-50 font-bold p-[12px] lg:py-[10px] placeholder:text-gray-400 mt-[28px] hover:bg-[#A78BFA] cursor-pointer transition-colors duration-500"
+            />
+          </form>
+        </div>
+      </div>
+
+      <div class="text-gray-900" id="aboutUs">
+        <!-- second main container -->
+        <div class="text-3xl font-black text-center mb-[24px]">
+          Наши преимущества
+        </div>
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 3xl:grid-cols-3 justify-items-center gap-[24px]"
+        >
+          <!-- container advantages -->
+
+          <div
+            class="flex flex-col md:flex-row items-center md:w-[372px] max-w-[372px] md:max-h-30 2xl:max-w-none 2xl:max-h-none 2xl:p-[24px] 2xl:w-[501px] 2xl:h-[184px]"
+          >
+            <!-- container for one item -->
+            <img class="md:mr-3" src="./public/Board.svg" alt="Board" />
+            <div class="text-[#000]">
+              <!-- container description -->
+              <div
+                class="2xl:text-2xl text-xl font-black mb-3 text-center lg:text-left"
+              >
+                Растоможка груза
+              </div>
+              <div
+                class="text-sm text-gray-900 md:w-[251.2px] 2xl:w-full text-center lg:text-left"
+              >
+                Мы берём на себя все формальности и бумажную волокиту, связанную
+                с растаможкой груза
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col md:flex-row items-center md:w-[372px] max-w-[372px] md:max-h-[140px] 2xl:max-w-none 2xl:max-h-none 2xl:p-[24px] 2xl:w-[501px] 2xl:h-[184px]"
+          >
+            <!-- container for one item -->
+            <img class="md:mr-3" src="./public/Package.svg" alt="Package" />
+            <div class="text-[#000] flex flex-col shrink">
+              <!-- container description -->
+              <div
+                class="2xl:text-2xl text-xl font-black mb-3 text-center lg:text-left"
+              >
+                Надёжная упаковка
+              </div>
+              <div
+                class="text-sm text-gray-900 md:w-[252.2px] 2xl:w-full text-center lg:text-left"
+              >
+                Все товары упаковываются нашими специалистами с особым вниманием
+                к деталям, гарантируя, что они дойдут в безопасности
+                и в отличном состоянии
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col md:flex-row items-center md:w-[372px] max-w-[372px] md:max-h-30 2xl:max-w-none 2xl:max-h-none 2xl:p-[24px] 2xl:w-[501px] 2xl:h-[184px]"
+          >
+            <!-- container for one item -->
+            <img class="md:mr-3" src="./public/Delivery.svg" alt="Delivery" />
+            <div class="text-[#000] 2xl:max-w-none max-w-[251.2px]">
+              <!-- container description -->
+              <div
+                class="2xl:text-2xl text-xl font-black mb-3 text-center lg:text-left"
+              >
+                Быстро и выгодно
+              </div>
+              <div
+                class="text-sm font-normal md:w-[253.2px] 2xl:w-full text-center lg:text-left 2xl:pr-[24px]"
+              >
+                Мы предлагаем быструю и выгодную доставку, чтобы вы могли
+                насладиться покупками как можно скорее
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col md:flex-row items-center md:w-[372px] max-w-[372px] md:max-h-30 2xl:max-w-none 2xl:max-h-none 2xl:p-[24px] 2xl:w-[501px] 2xl:h-[184px]"
+          >
+            <!-- container for one item -->
+            <img
+              class="md:mr-3"
+              src="./public/BestSupport.svg"
+              alt="Best Support"
+            />
+            <div class="text-[#000] 2xl:max-w-none max-w-[251.2px]">
+              <!-- container description -->
+              <div
+                class="2xl:text-2xl text-xl font-black mb-3 text-center lg:text-left"
+              >
+                Удобный сервис
+              </div>
+              <div class="text-sm text-center lg:text-left 3xl:pr-[30px]">
+                Стремимся сделать процесс доставки максимально удобным для вас,
+                чтобы опыт остался приятным и беззаботным
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col md:flex-row items-center w-[372px] max-w-[372px] md:max-h-30 2xl:max-w-none 2xl:max-h-none 2xl:p-[24px] 2xl:w-[501px] 2xl:h-[184px]"
+          >
+            <!-- container for one item -->
+            <img
+              class="md:mr-3"
+              src="./public/ClearInfo.svg"
+              alt="Clear Info"
+            />
+            <div class="text-[#000] 2xl:max-w-none max-w-[251.2px]">
+              <!-- container description -->
+              <div
+                class="2xl:text-2xl text-xl font-black mb-3 text-center lg:text-left"
+              >
+                Прозрачность работы
+              </div>
+              <div
+                class="text-sm md:w-[241.2px] 2xl:w-full text-center lg:text-left"
+              >
+                <span class="break-all">
+                  Мы предоставляем полный контроль
+                </span>
+                над каждым этапом доставки, от момента заказа до момента
+                прибытия заказа
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col md:flex-row items-center w-[372px] max-w-[372px] md:max-h-30 2xl:max-w-none 2xl:max-h-none 2xl:p-[24px] 2xl:w-[501px] 2xl:h-[184px]"
+          >
+            <!-- container for one item -->
+            <img class="md:mr-3" src="./public/Garantee.svg" alt="Garantee" />
+            <div class="text-[#000] 2xl:max-w-none max-w-[251.2px]">
+              <!-- container description -->
+              <div
+                class="2xl:text-2xl text-xl font-black mb-3 text-center lg:text-left"
+              >
+                Страхование груза
+              </div>
+              <div
+                class="text-sm md:w-[241.2px] 2xl:w-full text-center lg:text-left"
+              >
+                Наше страхование обеспечивает полную защиту и покрытие почти все
+                неприятные и неожиданные ситуации
+              </div>
+            </div>
+          </div>
+
+          <!--  -->
+        </div>
+      </div>
+
+      <div class="text-gray-900 text-center" id="garantee">
+        <!--  third main container -->
+
+        <div>
+          <!-- container haeding block -->
+          <div class="text-3xl font-black">Гарантии качества</div>
+          <div class="mt-3 2xl:max-w-[756px] 2xl:mx-auto">
+            Наши гарантии качества включают в себя полный спектр документов,
+            необходимых для ввоза и вывоза товаров, а также для успешного
+            бизнеса на мировом рынке. Мы предоставляем вам надёжность
+            и уверенность
+          </div>
+        </div>
+
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 3xl:grid-cols-4 justify-items-center mt-[24px] gap-[24px]"
+        >
+          <div>
+            <img
+              class="h-[375px]"
+              src="./public/CertificateRussian.svg"
+              alt="Certificate of registration russia"
+            />
+            <div class="font-black text-lg mt-1">
+              Свидетельство о регистрации в РФ
+            </div>
+          </div>
+
+          <div>
+            <img
+              class="h-[375px]"
+              src="./public/CertificateUsa.svg"
+              alt="Certificate of registration usa"
+            />
+            <div class="font-black text-lg mt-1">
+              Свидетельство о регистрации в США
+            </div>
+          </div>
+
+          <div class="max-w-[368px]">
+            <img
+              class="h-[375px]"
+              src="./public/CertificateChina.svg"
+              alt="Certificate of registration china"
+            />
+            <div class="font-black text-lg mt-1 max-h-[56px]">
+              Свидетельство о регистрации в Китае
+            </div>
+          </div>
+
+          <div class="max-w-[368px]">
+            <img
+              class="h-[375px]"
+              src="./public/CertificateUK.svg"
+              alt="Certificate of registration uk"
+            />
+            <div class="font-black text-lg mt-1 max-h-[56px]">
+              Свидетельство о регистрации в Великобритнии
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-[36px]">
+          <input type="checkbox" id="show-more-documents" class="hidden" />
+          <label
+            for="show-more-documents"
+            class="text-gray-50 text-base font-black text-center py-4 px-[28px] bg-[#8B5CF6] rounded-xl block max-w-[315px] mx-auto hover:bg-[#A78BFA] cursor-pointer transition-colors duration-500"
+          >
+            Показать больше документов
+          </label>
+        </div>
+      </div>
+
+      <div class="w-full" id="reviews">
+        <!-- forth main cotainer -->
+        <div class="flex md:flex-row flex-col md:gap-8 px-[7px]">
+          <button
+            id="prev"
+            onclick="useSlider('-1')"
+            class="bg-[url(../public/ButtonReviews.svg)] min-w-[60px] h-[60px] my-auto opacity-50 hover:opacity-50 hidden md:block"
+          ></button>
+
+          <div class="w-full flex flex-col items-center">
+            <div class="text-gray-90 text-3xl font-black text-center mb-8">
+              Отзывы
+            </div>
+            <div
+              class="3xl:max-w-[1276px] 2xl:max-w-[816px] lg:max-w-[570px] md:max-w-[442px] max-w-[310px] overflow-hidden"
+              id="limiter-for-display"
+              data-current-pos="1"
+            >
+              <!-- container which limits the display -->
+
+              <div
+                class="flex 2xl:gap-[24px] transition-transform duration-300 ease-in-out"
+                id="containerReviews"
+              >
+                <!-- container all reviews -->
+
+                <div
+                  class="flex flex-col justify-between bg-gray-50 rounded-2xl px-4 py-8 max-w-[310px] min-w-[310px] md:min-w-[442px] md:max-w-[442px] lg:min-w-[570px] lg:max-w-[570px] 2xl:min-w-[396px] 2xl:max-w-[396px] 3xl:min-w-[626px] 3xl:max-w-[626px]"
+                  id="review-1"
+                >
+                  <!-- review -->
+                  <div
+                    class="3xl:max-w-[540px] 3xl:text-2xl text-gray-900 text-lg font-bold"
+                  >
+                    Я заказала последний iPhone из США через ваш сервис,
+                    и доставка прошла быстро и без каких‑либо проблем. Гарантии
+                    качества и надёжная упаковка сделали мой опыт покупки
+                    невероятно позитивным
+                  </div>
+
+                  <div
+                    class="3xl:text-2xl 3xl:font-light mt-[24px] text-gray-500"
+                  >
+                    <div
+                      class="relative after:absolute after:content-[url(../public/Quotes.svg)] 3xl:after:top-[-90%] after:top-[-150%] after:right-1"
+                    >
+                      Анна
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="flex flex-col justify-between bg-gray-50 rounded-2xl px-4 py-8 max-w-[310px] min-w-[310px] md:min-w-[442px] md:max-w-[442px] lg:min-w-[570px] lg:max-w-[570px] 2xl:min-w-[396px] 2xl:max-w-[396px] 3xl:min-w-[626px] 3xl:max-w-[626px]"
+                  id="review-2"
+                >
+                  <!-- review -->
+                  <div
+                    class="3xl:max-w-[540px] 3xl:text-2xl text-gray-900 text-lg font-bold"
+                  >
+                    Я уже несколько лет заказываю дизайнерскую одежду из Франции
+                    через ваш сервис, и он никогда меня не подводил. Важно иметь
+                    надежную компанию, которая позаботится о вашем заказе и
+                    предоставит все необходимые документы для ввоза в Россию
+                  </div>
+
+                  <div
+                    class="3xl:text-2xl 3xl:font-light mt-[24px] text-gray-500"
+                  >
+                    <div
+                      class="relative after:absolute after:content-[url(../public/Quotes.svg)] after:top-[-150%] 3xl:after:top-[-90%] after:right-1"
+                    >
+                      Алексей
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="flex flex-col justify-between bg-gray-50 rounded-2xl px-4 py-8 max-w-[310px] min-w-[310px] md:min-w-[442px] md:max-w-[442px] lg:min-w-[570px] lg:max-w-[570px] 2xl:min-w-[396px] 2xl:max-w-[396px] 3xl:min-w-[626px] 3xl:max-w-[626px]"
+                  id="review-3"
+                >
+                  <!-- review -->
+                  <div
+                    class="3xl:max-w-[540px] 3xl:text-2xl text-gray-900 text-lg font-bold"
+                  >
+                    Я уже несколько лет заказываю дизайнерскую одежду из Франции
+                    через ваш сервис, и он никогда меня не подводил. Важно иметь
+                    надежную компанию, которая позаботится о вашем заказе и
+                    предоставит все необходимые документы для ввоза в Россию
+                  </div>
+
+                  <div
+                    class="3xl:text-2xl 3xl:font-light mt-[24px] text-gray-500"
+                  >
+                    <div
+                      class="relative after:absolute after:content-[url(../public/Quotes.svg)] after:top-[-150%] 3xl:after:top-[-90%] after:right-1"
+                    >
+                      Ольга
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="flex flex-col justify-between bg-gray-50 rounded-2xl px-4 py-8 max-w-[310px] min-w-[310px] md:min-w-[442px] md:max-w-[442px] lg:min-w-[570px] lg:max-w-[570px] 2xl:min-w-[396px] 2xl:max-w-[396px] 3xl:min-w-[626px] 3xl:max-w-[626px]"
+                  id="review-4"
+                >
+                  <!-- review -->
+                  <div
+                    class="3xl:max-w-[540px] 3xl:text-2xl text-gray-900 text-lg font-bold"
+                  >
+                    Заказал шикарные часы из Швейцарии, и доставка была
+                    невероятно быстрой. Ваш сервис делает интернет-шоппинг более
+                    доступным и удобным
+                  </div>
+
+                  <div
+                    class="3xl:text-2xl 3xl:font-light mt-[24px] text-gray-500"
+                  >
+                    <div
+                      class="relative after:absolute after:content-[url(../public/Quotes.svg)] after:top-[-150%] 3xl:after:top-[-90%] after:right-1"
+                    >
+                      Игорь
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="flex flex-col justify-between bg-gray-50 rounded-2xl px-4 py-8 max-w-[310px] min-w-[310px] md:min-w-[442px] md:max-w-[442px] lg:min-w-[570px] lg:max-w-[570px] 2xl:min-w-[396px] 2xl:max-w-[396px] 3xl:min-w-[626px] 3xl:max-w-[626px]"
+                  id="review-5"
+                >
+                  <!-- review -->
+                  <div
+                    class="3xl:max-w-[540px] 3xl:text-2xl text-gray-900 text-lg font-bold"
+                  >
+                    Ваш сервис действительно изменил мой способ покупок. Я
+                    больше не переживаю о таможенных вопросах и документах - все
+                    у вас в порядке. Спасибо за ваше качество и надежность
+                  </div>
+
+                  <div
+                    class="3xl:text-2xl 3xl:font-light mt-[24px] text-gray-500"
+                  >
+                    <div
+                      class="relative after:absolute after:content-[url(../public/Quotes.svg)] after:top-[-150%] 3xl:after:top-[-90%] after:right-1"
+                    >
+                      Екатерина
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="flex flex-col justify-between bg-gray-50 rounded-2xl px-4 py-8 3xl:px-[43px] 3xl:py-8 max-w-[310px] min-w-[310px] md:min-w-[442px] md:max-w-[442px] lg:min-w-[570px] lg:max-w-[570px] 2xl:min-w-[396px] 2xl:max-w-[396px] 3xl:min-w-[626px] 3xl:max-w-[626px]"
+                  id="review-6"
+                >
+                  <!-- review -->
+                  <div
+                    class="3xl:max-w-[540px] 3xl:text-2xl text-gray-900 text-lg font-bold"
+                  >
+                    Я заказал редкий антикварный предмет из Японии через ваш
+                    сервис, и остался впечатлен. Все пришло в отличном
+                    состоянии, и ваша гарантия качества действительно работает.
+                    Спасибо за ваше профессиональное обслуживание
+                  </div>
+
+                  <div
+                    class="3xl:text-2xl 3xl:font-light mt-[24px] text-gray-500"
+                  >
+                    <div
+                      class="relative after:absolute after:content-[url(../public/Quotes.svg)] after:top-[-150%] 3xl:after:top-[-90%] after:right-1"
+                    >
+                      Дмитрий
+                    </div>
+                  </div>
+                </div>
+                <!--  -->
+              </div>
+            </div>
+          </div>
+
+          <div class="md:hidden flex justify-between mt-4">
+            <button
+              id="prev-m"
+              onclick="useSlider('-1')"
+              class="bg-[url(../public/ButtonReviews.svg)] min-w-[60px] max-w-[60px] h-[60px] cursor-pointer my-auto opacity-50 transition-opacity duration-300"
+            ></button>
+            <button
+              id="next-m"
+              onclick="useSlider('1')"
+              class="bg-[url(../public/ButtonReviews.svg)] min-w-[60px] max-w-[60px] h-[60px] cursor-pointer transform-[scale(-1)] my-auto transition-opacity duration-300"
+            ></button>
+          </div>
+
+          <button
+            id="next"
+            onclick="useSlider('1')"
+            class="bg-[url(../public/ButtonReviews.svg)] min-w-[60px] max-w-[60px] h-[60px] cursor-pointer transform-[scale(-1)] my-auto transition-opacity duration-300 hidden md:block hover:opacity-50"
+          ></button>
+        </div>
+      </div>
+
+      <div
+        class="bg-gray-50 w- rounded-2xl py-[10%] px-[3%] md:p-16 lg:px-[135.5px] lg:py-16 2xl:px-[264.5px] 3xl:px-[512px] mb-15"
+      >
+        <!-- fith container  -->
+
+        <div class="text-gray-900 text-3xl font-black text-center">
+          Остались вопросы?
+        </div>
+
+        <form>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-[24px] mt-8 mb-[24px]"
+          >
+            <input
+              name="name"
+              type="text"
+              placeholder="Имя"
+              autocomplete="given-name"
+              required
+              class="w-full border-2 border-gray-900 text-gray-900 rounded-sm text p-[10px] placeholder:text-gray-400 hover:border-[#8a5cf680] transform-border duration-500 focus:border-[#8B5CF6] outline-0"
+            />
+            <input
+              name="email"
+              type="email"
+              placeholder="Почта"
+              autocomplete="on"
+              required
+              class="w-full border-2 border-gray-900 text-gray-900 rounded-sm text p-[10px] placeholder:text-gray-400 hover:border-[#8a5cf680] transform-border duration-500 focus:border-[#8B5CF6] outline-0"
+            />
+            <input
+              name="number"
+              type="tel"
+              placeholder="Телефон"
+              autocomplete="on"
+              required
+              class="w-full border-2 border-gray-900 text-gray-900 rounded-sm text p-[10px] placeholder:text-gray-400 hover:border-[#8a5cf680] transform-border duration-500 focus:border-[#8B5CF6] outline-0"
+            />
+            <input
+              name="theme"
+              type="text"
+              placeholder="Тема вопроса"
+              autocomplete="on"
+              required
+              class="w-full border-2 border-gray-900 text-gray-900 rounded-sm text p-[10px] placeholder:text-gray-400 hover:border-[#8a5cf680] transform-border duration-500 focus:border-[#8B5CF6] outline-0"
+            />
+          </div>
+          <textarea
+            name="msg"
+            type="text"
+            placeholder="Сообщение..."
+            autocomplete="on"
+            required
+            class="w-full border-2 border-gray-900 text-gray-900 rounded-sm text p-[10px] placeholder:text-gray-400 max-h-[150px] h-[150px] hover:border-[#8a5cf680] transform-border duration-500 focus:border-[#8B5CF6] outline-0"
+          ></textarea>
+
+          <input
+            name="take-calculation"
+            value="Оставить заявку"
+            type="submit"
+            class="w-full bg-[#8B5CF6] rounded-sm text-gray-50 font-bold p-[12px] lg:py-[10px] placeholder:text-gray-400 mt-[28px] lg:mt-5 hover:bg-[#A78BFA] cursor-pointer transition-colors duration-500"
+          />
+        </form>
+        <!--  -->
+      </div>
+    </main>
+    <footer
+      class="bg-gray-900 text-gray-50 py-10 lg:px-32 md:px-32 2xl:px-[192px] 3xl: px-[3%]"
+    >
+      <nav
+        class="2xl:hidden flex flex-col items-center md:flex-row gap-[24px] justify-center font-bold"
+      >
+        <a href="#calc">Калькулятор</a>
+        <a href="#aboutUs">О нас</a>
+        <a href="#garantee">Гарантии</a>
+        <a href="#reviews">Отзывы</a>
+      </nav>
+      <div
+        class="flex flex-col lg:flex-row-reverse lg:justify-between items-center my-[24px] gap-2"
+      >
+        <div>
+          <div
+            class="3xl:text-4xl md:text-3xl text-xl font-black mb-1 text-center"
+          >
+            <a
+              class="hover:text-[#8B5CF6] transition-colors duration-500"
+              href="tel:78001234567"
+              >+7 (800) 123 45-67</a
+            >
+          </div>
+          <div class="3xl:text-2xl md:text-xl">Звонки по России бесплатны</div>
+        </div>
+        <nav
+          class="hidden 2xl:flex flex-col items-center md:flex-row gap-[24px] justify-center font-bold"
+        >
+          <a
+            class="hover:text-[#A78BFA] cursor-pointer transition-colors duration-500"
+            href="#calc"
+            >Калькулятор</a
+          >
+          <a
+            class="hover:text-[#A78BFA] cursor-pointer transition-colors duration-500"
+            href="#aboutUs"
+            >О нас</a
+          >
+          <a
+            class="hover:text-[#A78BFA] cursor-pointer transition-colors duration-500"
+            href="#garantee"
+            >Гарантии</a
+          >
+          <a
+            class="hover:text-[#A78BFA] cursor-pointer transition-colors duration-500"
+            href="#reviews"
+            >Отзывы</a
+          >
+        </nav>
+        <div>
+          <a
+            href="/index.html"
+            class="flex lg:justify-start items-center justify-center md:text-2xl font-black gap-1 md:scale-100 scale-75 hover:text-[#A78BFA] cursor-pointer transition-colors duration-500"
+          >
+            <img class="" src="./public/Logo.svg" alt="Logo" /> FromBoard
+            Delivery
+          </a>
+          <div
+            class="text-xs text-center mt-2 relative after:content-[url(../public/Smile.svg)] after:absolute after:ml-1"
+          >
+            2023 © Ни одно право не защищено, копируйте сколько влезет
+          </div>
+        </div>
+      </div>
+      <div class="flex 2xl:flex-row flex-col gap-2 2xl:justify-between">
+        <div
+          class="text-gray-600 text-xs font-light text-center 2xl:text-left 2xl:max-w-[910px] 3xl:max-w-[1146px]"
+        >
+          НЕ ЯВЛЯЕТСЯ ПУБЛИЧНОЙ ОФЕРТОЙ. Просим обратить внимание на то,
+          что цены носят информационный и ознакомительный характер, а значит
+          ни в какой мере не являются публичной офертой, которая определена
+          в ст. 437 ГК РФ. Вся информация на сайте может содержать неточности,
+          орфографические и иные ошибки, она не является полной, окончательно
+          и исчерпывающей
+        </div>
+        <div
+          class="text-gray-600 text-center text-xs 2xl:text-right 2xl:flex 2xl:flex-col-reverse 2xl:max-w-[280px]"
+        >
+          <div class="opacity-50">
+            Разработкой макета занимался
+            <a class="underline" href="https://t.me/Wyndace"
+              >Васильев Александр</a
+            >
+            |
+            <a class="underline" href="https://t.me/smthonit"
+              >Что-то на IT’шном</a
+            >
+          </div>
+          <div class="text-gray-400">
+            Разработкой сайта занимался
+            <a
+              class="underline hover:text-[#8B5CF6] transition-colors duration-500"
+              href="https://t.me/oyanoTg"
+              >Ефанов Георгий</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./index.js"></script>
+  </body>
 </html>

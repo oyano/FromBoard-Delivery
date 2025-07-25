@@ -1,2 +1,4 @@
 *.fig
 *.lnk
+*scss
+node_modules
