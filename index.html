@@ -108,21 +108,25 @@
             <a
               class="hover:text-gray-900 text-[#8B5CF6] cursor-pointer transition-colors duration-500 dashed-underline"
               href="#calc"
+              onclick="useBurger()"
               >Калькулятор</a
             >
             <a
               class="hover:text-[#8B5CF6] cursor-pointer transition-colors duration-500w"
               href="#aboutUs"
+              onclick="useBurger()"
               >О нас</a
             >
             <a
               class="hover:text-[#8B5CF6] cursor-pointer transition-colors duration-500w"
               href="#garantee"
+              onclick="useBurger()"
               >Гарантии</a
             >
             <a
               class="hover:text-[#8B5CF6] cursor-pointer transition-colors duration-500w"
               href="#reviews"
+              onclick="useBurger()"
               >Отзывы</a
             >
           </div>
@@ -179,17 +183,13 @@
 
             <div
               class="3xl:h-full 3xl:w-full 2xl:w-[50%] 2xl:h-[232px] 2xl:mt-0 w-full bg-cover bg-[url(../public/Hero1-2.svg)] h-[350px] rounded-2xl mt-4 bg-no-repeat bg-center max-w-[768px]"
-            >
-              <!-- <img
-                class="w-[640px] h-[350px] max-w-none"
-                height="350px"
-                src="./public/Hero1-2.svg"
-                alt=""
-              /> -->
-            </div>
+            ></div>
+            <div
+              class="absolute 3xl:transform-[translateY(-30px)] 2xl:transform-[translateY(30px)] transform-[translateY(400px)]"
+              id="calc"
+            ></div>
           </div>
           <form
-            id="calc"
             class="3xl:max-w-[50%] 3xl:w-[50%] 3xl:px-[130px] 2xl:px-[210px] lg:px-[99.5px] md:px-[35.5px] px-[3.5%] py-[24px] bg-gray-50 rounded-2xl mt-12 lg:mt-10 3xl:mt-0"
           >
             <!-- container calculator -->
@@ -274,6 +274,10 @@
                 class="w-full border-2 border-gray-900 text-gray-900 rounded-sm text p-[10px] placeholder:text-gray-400 hover:border-[#8a5cf680] transform-border duration-500 focus:border-[#8B5CF6] outline-0"
               />
             </div>
+            <div
+              class="absolute transform-[translateY(30px)]"
+              id="aboutUs"
+            ></div>
             <input
               name="take-calculation"
               value="Заказать расчёт"
@@ -284,7 +288,7 @@
         </div>
       </div>
 
-      <div class="text-gray-900" id="aboutUs">
+      <div class="text-gray-900">
         <!-- second main container -->
         <div class="text-3xl font-black text-center mb-[24px]">
           Наши преимущества
@@ -432,9 +436,10 @@
 
           <!--  -->
         </div>
+        <div class="absolute transform-[translateY(-50px)]" id="garantee"></div>
       </div>
 
-      <div class="text-gray-900 text-center" id="garantee">
+      <div class="text-gray-900 text-center">
         <!--  third main container -->
 
         <div>
@@ -493,6 +498,7 @@
             <div class="font-black text-lg mt-1 max-h-[56px]">
               Свидетельство о регистрации в Великобритнии
             </div>
+            <div class="" id="reviews"></div>
           </div>
         </div>
 
@@ -507,7 +513,7 @@
         </div>
       </div>
 
-      <div class="w-full" id="reviews">
+      <div class="w-full">
         <!-- forth main cotainer -->
         <div class="flex md:flex-row flex-col md:gap-8 px-[7px]">
           <button

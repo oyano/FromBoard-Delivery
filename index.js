@@ -1,7 +1,9 @@
 "use string";
 function useSlider(action) {
-  if (isThatComputer(action)) return;
-
+  if (isThatComputer()) {
+    desktopSlider(action);
+    return;
+  }
   action = parseInt(action);
 
   let current = document
@@ -34,13 +36,11 @@ function isLastOrFirstEl(current, action, countItems) {
   if (current === countItems && action === 1) return true;
 }
 
-function isThatComputer(action) {
+function isThatComputer() {
   const clientWidth = window.innerWidth;
 
-  if (clientWidth >= 1536) {
-    desktopSlider(action);
-    return true;
-  }
+  if (clientWidth >= 1536) return true;
+
   return false;
 }
 
@@ -135,6 +135,7 @@ function handleTouchMove(evt) {
 }
 
 function useBurger() {
+  if (isThereBurger()) return;
   linesBurger();
   showBurgerWall();
 
@@ -161,4 +162,12 @@ function showBurgerWall() {
   setTimeout(() => {
     document.getElementById("burger-wall").classList.toggle("hidden");
   }, "300");
+}
+
+function isThereBurger() {
+  const clientWidth = window.innerWidth;
+
+  if (clientWidth < 1024) return false;
+
+  return true;
 }

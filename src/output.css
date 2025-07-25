@@ -208,6 +208,33 @@
   .right-0 {
     right: calc(var(--spacing) * 0);
   }
+  .bottom-0 {
+    bottom: calc(var(--spacing) * 0);
+  }
+  .bottom-4 {
+    bottom: calc(var(--spacing) * 4);
+  }
+  .bottom-8 {
+    bottom: calc(var(--spacing) * 8);
+  }
+  .bottom-10 {
+    bottom: calc(var(--spacing) * 10);
+  }
+  .bottom-\[10\%\] {
+    bottom: 10%;
+  }
+  .bottom-\[30\%\] {
+    bottom: 30%;
+  }
+  .bottom-\[30px\] {
+    bottom: 30px;
+  }
+  .bottom-\[50\%\] {
+    bottom: 50%;
+  }
+  .bottom-\[80\%\] {
+    bottom: 80%;
+  }
   .left-0 {
     left: calc(var(--spacing) * 0);
   }
@@ -443,8 +470,38 @@
   .transform-\[scale\(-1\)\] {
     transform: scale(-1);
   }
+  .transform-\[translateY\(-30px\)\] {
+    transform: translateY(-30px);
+  }
+  .transform-\[translateY\(-40px\)\] {
+    transform: translateY(-40px);
+  }
+  .transform-\[translateY\(-50px\)\] {
+    transform: translateY(-50px);
+  }
   .transform-\[translateY\(-200vh\)\] {
     transform: translateY(-200vh);
+  }
+  .transform-\[translateY\(20px\)\] {
+    transform: translateY(20px);
+  }
+  .transform-\[translateY\(30\%\)\] {
+    transform: translateY(30%);
+  }
+  .transform-\[translateY\(30px\)\] {
+    transform: translateY(30px);
+  }
+  .transform-\[translateY\(300PX\)\] {
+    transform: translateY(300PX);
+  }
+  .transform-\[translateY\(300px\)\] {
+    transform: translateY(300px);
+  }
+  .transform-\[translateY\(400px\)\] {
+    transform: translateY(400px);
+  }
+  .transform-\[translateY\[30px\]\] {
+    transform: translateY[30px];
   }
   .cursor-pointer {
     cursor: pointer;
@@ -1293,6 +1350,11 @@
       min-width: 396px;
     }
   }
+  .\32 xl\:transform-\[translateY\(30px\)\] {
+    @media (width >= 96rem) {
+      transform: translateY(30px);
+    }
+  }
   .\32 xl\:flex-col-reverse {
     @media (width >= 96rem) {
       flex-direction: column-reverse;
@@ -1439,6 +1501,11 @@
   .\33 xl\:min-w-\[626px\] {
     @media (width >= 120rem) {
       min-width: 626px;
+    }
+  }
+  .\33 xl\:transform-\[translateY\(-30px\)\] {
+    @media (width >= 120rem) {
+      transform: translateY(-30px);
     }
   }
   .\33 xl\:grid-cols-3 {
