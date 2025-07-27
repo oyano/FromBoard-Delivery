@@ -171,3 +171,28 @@ function isThereBurger() {
 
   return true;
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("sliderBtn").addEventListener("click", useAccordion);
+});
+function useAccordion() {
+  const container = document.querySelector("#slider");
+  const maxHeight = container.scrollHeight;
+  const height = container.clientHeight;
+
+  if (maxHeight === height) {
+    container.style.maxHeight = `0px`;
+    const button = event.target;
+    editButton(button, "Показать больше документов");
+    return;
+  }
+
+  container.style.maxHeight = `${maxHeight}px`;
+  const button = event.target;
+  editButton(button, "Скрыть документы");
+  return;
+}
+
+function editButton(button, text) {
+  button.innerHTML = text;
+}

@@ -132,3 +132,7 @@ body{
  text-decoration: dashed underline 2px;
  text-underline-position: under;
 }
+#slider {
+    max-height: 0px;
+    transition: all .5s;
+}
